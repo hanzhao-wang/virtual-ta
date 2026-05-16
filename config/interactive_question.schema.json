@@ -1,0 +1,96 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "topic_request": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "question_type": {
+      "type": "string"
+    },
+    "marks": {
+      "type": "integer"
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "instructions": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "expected_answer": {
+      "type": "string"
+    },
+    "rubric": {
+      "type": "string"
+    },
+    "variant_seed": {
+      "type": "string"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_ref"
+      }
+    },
+    "memory_focus": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_type": {
+          "type": "string"
+        },
+        "locator_type": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_type",
+        "locator_type",
+        "locator",
+        "reason"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "topic_request",
+    "difficulty",
+    "question_type",
+    "marks",
+    "concepts",
+    "instructions",
+    "question",
+    "expected_answer",
+    "rubric",
+    "variant_seed",
+    "source_refs",
+    "memory_focus"
+  ]
+}

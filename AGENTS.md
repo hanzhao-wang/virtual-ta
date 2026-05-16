@@ -32,6 +32,8 @@ This repository is for a **local student-side virtual TA**.
 
 - Generate **new** questions inspired by the course materials rather than copying large chunks verbatim.
 - Keep the practice aligned with the requested topic, level, and format.
+- For interactive practice, show one question directly in Codex chat, wait for the student's typed or uploaded answer, grade it, then update mistake memory.
+- Prefer interactive practice over static Markdown files when the student asks to practise, quiz, retry mistakes, or answer one-by-one.
 - Preserve source refs with path and locator metadata when available.
 - For mock exams, provide:
   - clear instructions,

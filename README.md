@@ -29,7 +29,7 @@ What is overfitting and how do we detect it? Please answer from my course materi
 Generate practice:
 
 ```text
-Create 5 practice questions on decision trees and random forests. Show answers and short explanations after the questions.
+Quiz me one question at a time on decision trees and random forests. Wait for my answer, then grade it, explain the correction, and remember any mistakes.
 ```
 
 Generate a mock exam:
@@ -85,7 +85,7 @@ Scanned PDFs are detected when little or no text can be extracted. V1 reports th
 
 Mistake memory is local and private. Attempts are stored under `memory/profiles/default/`, which is ignored by git.
 
-During interactive practice, Codex records attempts automatically after grading student answers.
+During interactive practice, Codex shows one question directly in chat, waits for the student's typed or uploaded answer, gives feedback, and records mistakes automatically after grading.
 
 Concept status updates automatically:
 
@@ -100,5 +100,6 @@ Concept status updates automatically:
 - `tools/prepare_course_materials.py`: robust ingestion and locator-aware indexing
 - `tools/run_answer.py`: local-first answers through Codex
 - `tools/generate_practice.py`: exercise/mock generation with Markdown, TeX, and PDF rendering
+- `tools/interactive_practice.py`: one-question-at-a-time practice, grading, and memory updates
 - `tools/lib/memory.py`: local adaptive mistake memory
 - `config/virtual_ta.toml`: material roots and behavior settings

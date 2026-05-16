@@ -15,7 +15,7 @@ Codex should clone the repository if needed, install dependencies, run `python t
 After adding materials, paste:
 
 ```text
-I have added my course files under resources. Please index them with automatic image captioning. After indexing, explain how I can use this virtual TA using plain-English Codex prompts only. Do not give me terminal commands unless I ask for them.
+I have added my course files under resources. Please index them with automatic image captioning. After indexing, explain how I can use this virtual TA using plain-English Codex prompts only. For practice, explain the one-question-at-a-time workflow where Codex asks a question, waits for my typed or uploaded answer, grades it, gives feedback, and updates mistake memory. Do not give me terminal commands unless I ask for them.
 ```
 
 Codex should then run the indexing command internally and summarize the result in student-friendly language.

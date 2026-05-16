@@ -55,15 +55,21 @@ Is model stacking covered in this course? If yes, point me to the relevant file 
 Paste prompts like:
 
 ```text
-Create 5 practice questions on decision trees and random forests. Show answers and short explanations after the questions.
+Quiz me one question at a time on decision trees and random forests. Wait for my answer, then grade it, explain the correction, and remember any mistakes.
 ```
 
 ```text
-Quiz me one question at a time on gradient boosting. Wait for my answer before giving feedback and the next question.
+I uploaded my answer. Please grade it, explain what I missed, and update my mistake memory.
 ```
 
 ```text
 Give me another question testing the same concept I got wrong, but change the business scenario and numbers.
+```
+
+For a non-interactive practice sheet, ask:
+
+```text
+Create a 5-question practice sheet on gradient boosting with answers and explanations.
 ```
 
 ## 5. Generate Mock Exams

@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "question_id": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "support_level": {
+      "type": "string",
+      "enum": [
+        "local_materials",
+        "local_plus_general_reasoning",
+        "general_reasoning_only"
+      ]
+    },
+    "direct_feedback": {
+      "type": "string"
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model_answer": {
+      "type": "string"
+    },
+    "next_step": {
+      "type": "string"
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_ref"
+      }
+    },
+    "memory_note": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_type": {
+          "type": "string"
+        },
+        "locator_type": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_type",
+        "locator_type",
+        "locator",
+        "reason"
+      ]
+    }
+  },
+  "required": [
+    "question_id",
+    "score",
+    "support_level",
+    "direct_feedback",
+    "strengths",
+    "corrections",
+    "model_answer",
+    "next_step",
+    "concepts",
+    "source_refs",
+    "memory_note"
+  ]
+}

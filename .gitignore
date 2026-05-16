@@ -23,4 +23,7 @@ answers/*
 !answers/.gitkeep
 practice/*
 !practice/.gitkeep
+!practice/sessions/
+practice/sessions/*
+!practice/sessions/.gitkeep
 memory/profiles/
