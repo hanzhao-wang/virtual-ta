@@ -1,5 +1,13 @@
 # Getting Started For Students
 
+## 0. Install From A Blank Codex Project
+
+Choose **Start from scratch** in Codex, then paste:
+
+```text
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
+```
+
 ## 1. Put Files In Resources
 
 Add slides, tutorials, exercises, assignment guides, data dictionaries, and quizzes under `resources/`.

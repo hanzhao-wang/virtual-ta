@@ -52,13 +52,19 @@ python tools/ta.py mistakes
 
 ## Codex Install Prompt
 
-Students can paste this directly into Codex without opening GitHub first:
+Students can choose **Start from scratch** in Codex, then paste this directly without opening GitHub first:
 
 ```text
-Please install this repo https://github.com/hanzhao-wang/virtual-ta and set up the Student Virtual TA. Put my course files under resources, run the setup doctor, index the materials with automatic image captioning, and explain the commands I can use.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
 ```
 
-Codex should clone the repo if needed, follow `INSTALL.md`, run `python tools/ta.py doctor`, install missing Python packages, then run `python tools/ta.py index --auto-caption --polish` after materials are present.
+After students add course files under `resources/`, they can paste:
+
+```text
+I have added my course files under resources. Please run the Student Virtual TA indexing pipeline with automatic image captioning and then explain the commands I can use to ask questions, generate practice, generate mock exams, and review mistakes.
+```
+
+Codex should clone the repo if needed, follow `INSTALL.md`, run `python tools/ta.py doctor`, install missing Python packages, and only run `python tools/ta.py index --auto-caption --polish` after materials are present.
 
 ## Source Citations
 

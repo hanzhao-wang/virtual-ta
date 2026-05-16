@@ -4,13 +4,21 @@ This repo is designed for students to use inside Codex with local course files.
 
 ## Codex Setup Prompt
 
-Paste this directly into Codex:
+Choose **Start from scratch** in Codex, then paste this directly:
 
 ```text
-Please install this repo https://github.com/hanzhao-wang/virtual-ta and set up the Student Virtual TA. Put my course files under resources, run the setup doctor, index the materials with automatic image captioning, and explain the commands I can use.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
 ```
 
-Codex should clone the repository if needed, install dependencies, run `python tools/ta.py doctor`, and run `python tools/ta.py index --auto-caption --polish` after materials are present.
+Codex should clone the repository if needed, install dependencies, run `python tools/ta.py doctor`, and stop before indexing if `resources/` has no course files.
+
+After adding materials, paste:
+
+```text
+I have added my course files under resources. Please run the Student Virtual TA indexing pipeline with automatic image captioning and then explain the commands I can use to ask questions, generate practice, generate mock exams, and review mistakes.
+```
+
+Codex should then run `python tools/ta.py index --auto-caption --polish`.
 
 ## Manual Setup
 
