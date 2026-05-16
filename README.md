@@ -2,7 +2,7 @@
 
 A local, student-side virtual teaching assistant for Codex. It indexes course materials, answers questions with source citations, generates practice and mock exams, and tracks mistakes privately on the student's machine.
 
-The default workflow is local-first and Codex-command based. There is no web app, shared class database, or required live web search.
+The default student workflow is plain-text chat in Codex. Students do not need to type terminal commands; Codex runs the local tools for them. There is no web app, shared class database, or required live web search.
 
 ## What It Handles
 
@@ -16,38 +16,32 @@ Put course files under `resources/`. That folder is ignored by git by default so
 
 Every file is either indexed, converted, auto-captioned, marked as needing attention, or listed with an actionable warning in `cache/material_catalog.md`.
 
-## Quick Start
+## Student Quick Start
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python tools/ta.py doctor
-python tools/ta.py index --auto-caption --polish
-```
+After setup, students can talk to Codex in plain English.
 
 Ask a question:
 
-```bash
-python tools/ta.py ask "What is overfitting and how do we detect it?"
+```text
+What is overfitting and how do we detect it? Please answer from my course materials first and cite the exact slide/page if available.
 ```
 
 Generate practice:
 
-```bash
-python tools/ta.py practice "decision trees and random forests" --num-questions 5
+```text
+Create 5 practice questions on decision trees and random forests. Show answers and short explanations after the questions.
 ```
 
-Generate a mock exam PDF:
+Generate a mock exam:
 
-```bash
-python tools/ta.py mock "model evaluation and tree-based methods" --num-questions 6 --format pdf
+```text
+Create an 8-question mock exam on weeks 2 to 8. Include marks, answers, explanations, and source coverage.
 ```
 
 Review mistake memory:
 
-```bash
-python tools/ta.py mistakes
+```text
+Show my mistake review form and tell me which concepts I should retry next.
 ```
 
 ## Codex Install Prompt
@@ -55,16 +49,16 @@ python tools/ta.py mistakes
 Students can choose **Start from scratch** in Codex, then paste this directly without opening GitHub first:
 
 ```text
-Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, and run the setup doctor. Explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present. When explaining how to use the TA, give me plain-English Codex prompts only, not terminal commands, unless I ask for commands.
 ```
 
-After students add course files under `resources/`, they can paste:
+After students manually add course files under `resources/`, they can paste:
 
 ```text
-I have added my course files under resources. Please run the Student Virtual TA indexing pipeline with automatic image captioning and then explain the commands I can use to ask questions, generate practice, generate mock exams, and review mistakes.
+I have added my course files under resources. Please index them with automatic image captioning. After indexing, explain how I can use this virtual TA using plain-English Codex prompts only. Do not give me terminal commands unless I ask for them.
 ```
 
-Codex should clone the repo if needed, follow `INSTALL.md`, run `python tools/ta.py doctor`, install missing Python packages, and only run `python tools/ta.py index --auto-caption --polish` after materials are present.
+Codex should clone the repo if needed, follow `INSTALL.md`, run the local setup/indexing tools internally, and only index after materials are present.
 
 ## Source Citations
 
@@ -81,18 +75,7 @@ If local material is insufficient, answers must label the support level as `gene
 
 ## Images And Scanned Material
 
-Image files can be captioned automatically with Codex vision:
-
-```bash
-python tools/ta.py caption-images
-python tools/ta.py index
-```
-
-Or do both in one command:
-
-```bash
-python tools/ta.py index --auto-caption
-```
+Image files can be captioned automatically with Codex vision during indexing.
 
 Captions are stored under `cache/image_captions/` and become citeable local evidence. If Codex vision is unavailable, the indexer still creates caption stubs that can be filled manually.
 
@@ -102,16 +85,7 @@ Scanned PDFs are detected when little or no text can be extracted. V1 reports th
 
 Mistake memory is local and private. Attempts are stored under `memory/profiles/default/`, which is ignored by git.
 
-Codex can record interactive practice attempts with:
-
-```bash
-python tools/ta.py record-attempt \
-  --concept "overfitting" \
-  --score 0.5 \
-  --question "Why is this model overfitting?" \
-  --student-answer "Because training accuracy is low." \
-  --feedback "Confused training fit with generalization gap."
-```
+During interactive practice, Codex records attempts automatically after grading student answers.
 
 Concept status updates automatically:
 

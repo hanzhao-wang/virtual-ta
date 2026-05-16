@@ -4,6 +4,9 @@ This repository is for a **local student-side virtual TA**.
 
 ## Core behavior
 
+- Treat students as non-programmers unless they ask for commands.
+- For student-facing explanations, give natural-language Codex prompts instead of terminal command recipes.
+- When a student asks in plain English, run the relevant wrapper script yourself and summarize the result.
 - Answer questions from local course materials first.
 - Prefer `cache/outlines/course_outline.json` or `cache/outlines/course_outline.md` if present.
 - If the polished outline is missing, use `cache/outlines/course_outline_seed.json` or `.md`.
@@ -45,7 +48,7 @@ This repository is for a **local student-side virtual TA**.
 - Keep cache artifacts under `cache/`.
 - Do not modify files under `resources/` or `course_materials/` unless explicitly asked.
 - Prefer the provided wrapper scripts under `tools/`.
-- Prefer `python tools/ta.py ...` for student-facing workflows.
+- Prefer `python tools/ta.py ...` internally, but do not make students type commands unless they explicitly ask.
 
 ## Typical files to read first
 

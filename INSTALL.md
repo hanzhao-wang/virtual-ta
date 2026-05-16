@@ -7,7 +7,7 @@ This repo is designed for students to use inside Codex with local course files.
 Choose **Start from scratch** in Codex, then paste this directly:
 
 ```text
-Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, and run the setup doctor. Explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present. When explaining how to use the TA, give me plain-English Codex prompts only, not terminal commands, unless I ask for commands.
 ```
 
 Codex should clone the repository if needed, install dependencies, run `python tools/ta.py doctor`, and stop before indexing if `resources/` has no course files.
@@ -15,10 +15,10 @@ Codex should clone the repository if needed, install dependencies, run `python t
 After adding materials, paste:
 
 ```text
-I have added my course files under resources. Please run the Student Virtual TA indexing pipeline with automatic image captioning and then explain the commands I can use to ask questions, generate practice, generate mock exams, and review mistakes.
+I have added my course files under resources. Please index them with automatic image captioning. After indexing, explain how I can use this virtual TA using plain-English Codex prompts only. Do not give me terminal commands unless I ask for them.
 ```
 
-Codex should then run `python tools/ta.py index --auto-caption --polish`.
+Codex should then run the indexing command internally and summarize the result in student-friendly language.
 
 ## Manual Setup
 

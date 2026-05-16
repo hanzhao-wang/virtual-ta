@@ -1,94 +1,93 @@
 # Getting Started For Students
 
+This virtual TA is designed to be used through plain English in Codex. You do not need coding or terminal experience.
+
 ## 0. Install From A Blank Codex Project
 
 Choose **Start from scratch** in Codex, then paste:
 
 ```text
-Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, run the setup doctor, and explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta into ~/Desktop/virtual-ta and set up the Student Virtual TA. Clone the repo if needed, create a Python environment, install the requirements, and run the setup doctor. Explain that I should manually put my course files into ~/Desktop/virtual-ta/resources before indexing. Do not index yet unless course files are already present. When explaining how to use the TA, give me plain-English Codex prompts only, not terminal commands, unless I ask for commands.
 ```
 
-## 1. Put Files In Resources
+## 1. Add Course Files
 
-Add slides, tutorials, exercises, assignment guides, data dictionaries, and quizzes under `resources/`.
-
-Supported examples:
-
-- `resources/Lectures/week_01.pdf`
-- `resources/Lectures/week_02.pptx`
-- `resources/Exercises/mock_exam.tex`
-- `resources/Assignment/data_dictionary.xlsx`
-- `resources/Quizzes/tree_diagram.png`
-
-## 2. Check Setup
-
-```bash
-python tools/ta.py doctor
-```
-
-Fix anything marked missing if it is needed for your files.
-
-## 3. Index The Course
-
-```bash
-python tools/ta.py index --auto-caption --polish
-```
-
-The TA builds:
-
-- `cache/manifest.jsonl`
-- `cache/chunks.jsonl`
-- `cache/index.db`
-- `cache/outlines/course_outline_seed.json`
-- `cache/outlines/course_outline.json` when polished
-
-## 4. Ask Questions
-
-```bash
-python tools/ta.py ask "How do validation and test sets differ?"
-```
-
-The answer starts directly, includes a simple example, and labels its support level:
-
-- `local_materials`
-- `local_plus_general_reasoning`
-- `general_reasoning_only`
-- `live_web_search`
-
-## 5. Generate Practice
-
-```bash
-python tools/ta.py practice "gradient boosting" --difficulty mixed --num-questions 5
-```
-
-Practice includes questions, answers, explanations, concepts, marks, and source references.
-
-## 6. Generate A Mock Exam
-
-```bash
-python tools/ta.py mock "weeks 2 to 8" --num-questions 8 --format pdf
-```
-
-If LaTeX is unavailable, use:
-
-```bash
-python tools/ta.py mock "weeks 2 to 8" --num-questions 8 --format markdown
-```
-
-## 7. Practice One Question At A Time In Codex
-
-Ask Codex:
+After setup, manually put slides, tutorials, exercises, assignment guides, data dictionaries, and quizzes into:
 
 ```text
-Use the interactive-practice skill. Quiz me one question at a time on decision trees. After each answer, grade me, explain the correction, and update my mistake memory.
+~/Desktop/virtual-ta/resources
 ```
 
-Codex records attempts locally with `python tools/ta.py record-attempt`.
+Suggested folders:
 
-## 8. Review Mistakes
+- `Lectures`
+- `Question Books`
+- `Exercises`
+- `Quizzes`
+- `Assignment`
 
-```bash
-python tools/ta.py mistakes
+## 2. Index The Course
+
+After adding files, paste this into Codex:
+
+```text
+I have added my course files under resources. Please index them with automatic image captioning. After indexing, explain how I can use this virtual TA using plain-English Codex prompts only. Do not give me terminal commands unless I ask for them.
 ```
 
-This writes `memory/profiles/default/mistake_review.md`, showing weak concepts, common errors, source references, and retry plans.
+## 3. Ask Course Questions
+
+Paste prompts like:
+
+```text
+What is overfitting and how do we detect it? Please answer from my course materials first and cite the exact slide/page if available.
+```
+
+```text
+Explain the difference between validation error and test error using a simple business example.
+```
+
+```text
+Is model stacking covered in this course? If yes, point me to the relevant file and page/slide.
+```
+
+## 4. Generate Practice
+
+Paste prompts like:
+
+```text
+Create 5 practice questions on decision trees and random forests. Show answers and short explanations after the questions.
+```
+
+```text
+Quiz me one question at a time on gradient boosting. Wait for my answer before giving feedback and the next question.
+```
+
+```text
+Give me another question testing the same concept I got wrong, but change the business scenario and numbers.
+```
+
+## 5. Generate Mock Exams
+
+Paste prompts like:
+
+```text
+Create an 8-question mock exam covering weeks 2 to 8. Include marks, answers, explanations, and source coverage.
+```
+
+```text
+Create a PDF mock exam on model evaluation and tree-based methods.
+```
+
+## 6. Review Mistakes
+
+Paste prompts like:
+
+```text
+Show my mistake review form and tell me which concepts I should retry next.
+```
+
+```text
+Based on my previous mistakes, create a short targeted practice session.
+```
+
+Codex will run the local TA tools internally and summarize the result for you.
