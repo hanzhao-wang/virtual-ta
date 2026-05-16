@@ -52,13 +52,13 @@ python tools/ta.py mistakes
 
 ## Codex Install Prompt
 
-For an open-source release, students can open this GitHub repo in Codex and ask:
+Students can paste this directly into Codex without opening GitHub first:
 
 ```text
-Please install and set up this Student Virtual TA repo. Put my course files under resources, run the setup doctor, index the materials, and explain the commands I can use.
+Please install this repo https://github.com/hanzhao-wang/virtual-ta and set up the Student Virtual TA. Put my course files under resources, run the setup doctor, index the materials with automatic image captioning, and explain the commands I can use.
 ```
 
-Codex should follow `INSTALL.md`, run `python tools/ta.py doctor`, install missing Python packages, then run `python tools/ta.py index --polish` after materials are present.
+Codex should clone the repo if needed, follow `INSTALL.md`, run `python tools/ta.py doctor`, install missing Python packages, then run `python tools/ta.py index --auto-caption --polish` after materials are present.
 
 ## Source Citations
 
