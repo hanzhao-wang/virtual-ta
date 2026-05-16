@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "exercise_set",
+        "mock_exam"
+      ]
+    },
+    "topic_request": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "instructions": {
+      "type": "string"
+    },
+    "coverage_notes": {
+      "type": "string"
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rubric": {
+      "type": "string"
+    },
+    "variant_seed": {
+      "type": "string"
+    },
+    "source_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_ref"
+      }
+    },
+    "tex_source_path": {
+      "type": "string"
+    },
+    "pdf_path": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "marks": {
+            "type": "integer"
+          },
+          "question_type": {
+            "type": "string"
+          },
+          "concepts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rubric": {
+            "type": "string"
+          },
+          "variant_seed": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/source_ref"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "marks",
+          "question_type",
+          "concepts",
+          "rubric",
+          "variant_seed",
+          "question",
+          "answer",
+          "explanation",
+          "source_paths",
+          "source_refs"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_type": {
+          "type": "string"
+        },
+        "locator_type": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_type",
+        "locator_type",
+        "locator",
+        "reason"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "topic_request",
+    "difficulty",
+    "instructions",
+    "coverage_notes",
+    "concepts",
+    "rubric",
+    "variant_seed",
+    "source_paths",
+    "source_refs",
+    "questions"
+  ]
+}

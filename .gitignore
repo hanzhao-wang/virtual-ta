@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local course materials are student/instructor-provided and often copyrighted.
+resources/*
+!resources/README.md
+
+# Generated local cache artifacts.
+cache/*
+!cache/extracted/
+cache/extracted/*
+!cache/extracted/.gitkeep
+!cache/retrieval/
+cache/retrieval/*
+!cache/retrieval/.gitkeep
+!cache/outlines/
+cache/outlines/*
+!cache/outlines/.gitkeep
+
+answers/*
+!answers/.gitkeep
+practice/*
+!practice/.gitkeep
+memory/profiles/

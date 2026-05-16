@@ -1,0 +1,66 @@
+[materials]
+lectures = ["resources/Lectures", "course_materials/lectures"]
+tutorials = ["resources/Question Books", "course_materials/tutorials"]
+assignments = ["resources/Assignment", "course_materials/assignments"]
+quizzes = ["resources/Quizzes", "course_materials/quizzes"]
+exercises = ["resources/Exercises"]
+reference = ["course_materials/reference"]
+
+[cache]
+root = "cache"
+manifest = "cache/manifest.jsonl"
+chunks = "cache/chunks.jsonl"
+sqlite_index = "cache/index.db"
+catalog_markdown = "cache/material_catalog.md"
+extracted_root = "cache/extracted"
+retrieval_root = "cache/retrieval"
+image_caption_root = "cache/image_captions"
+outline_seed_json = "cache/outlines/course_outline_seed.json"
+outline_seed_markdown = "cache/outlines/course_outline_seed.md"
+outline_json = "cache/outlines/course_outline.json"
+outline_markdown = "cache/outlines/course_outline.md"
+
+[ingestion]
+archive_max_members = 200
+archive_max_member_mb = 25
+pdf_low_text_chars_per_page = 40
+csv_max_rows = 30
+xlsx_max_rows_per_sheet = 30
+caption_stub_template = "Describe the visual content, labels, axes, and the course concept this image supports."
+
+[captioning]
+model = "gpt-5.4"
+max_images_per_run = 50
+overwrite_existing = false
+prompt = "Write a concise retrieval caption for this course image. Include visible text, labels, axes, formulas, data values, diagram structure, and the likely course concept. Do not invent unreadable details. Return plain Markdown only."
+
+[retrieval]
+chunk_size = 1400
+chunk_overlap = 180
+default_top_k = 8
+max_preview_chars = 900
+
+[answering]
+include_simple_example = true
+max_sources = 6
+prefer_course_materials = true
+allow_general_reasoning_when_local_missing = true
+
+[practice]
+default_kind = "exercise_set"
+default_num_questions = 5
+default_difficulty = "mixed"
+default_format = "markdown"
+
+[latex]
+compiler = "pdflatex"
+
+[memory]
+default_profile = "default"
+root = "memory/profiles"
+needs_review_below = 0.6
+mastery_threshold = 0.8
+mastery_streak = 2
+
+[web]
+default_live_search = false

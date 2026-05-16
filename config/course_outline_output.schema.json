@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "course_title": {
+      "type": "string"
+    },
+    "high_level_summary": {
+      "type": "string"
+    },
+    "lectures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "lecture_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "key_topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "lecture_id",
+          "title",
+          "summary",
+          "key_topics",
+          "source_paths"
+        ]
+      }
+    },
+    "topic_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "topic": {
+            "type": "string"
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "topic",
+          "source_paths"
+        ]
+      }
+    }
+  },
+  "required": [
+    "course_title",
+    "high_level_summary",
+    "lectures",
+    "topic_index"
+  ]
+}
